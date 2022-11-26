@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Coders</b>FREE',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -150,10 +150,10 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
+    'layout_dark_mode' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -253,13 +253,13 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -312,11 +312,24 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Dashboard',
+            'route'         => 'admin.home',
+            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
+        ],
+        ['header' => 'ADMINISTRADOR'],
+        [
+          'text' => 'Categorías',
+          'route' => 'admin.categories.index',
+          'icon' => 'fab fa-fw fa-buffer',
+          'active' => ['admin/categories*']
+        ],
+        [
+          'text' => 'Etiquetas',
+          'route' => 'admin.tags.index',
+          'icon' => 'far fa-fw fa-bookmark',
+          'active' => ['admin/tags*']
         ],
         ['header' => 'account_settings'],
         [
