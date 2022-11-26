@@ -10,7 +10,7 @@
 <div class="card">
 
 	<div class="card-body">
-		{!! Form::open(['route' => 'admin.categories.store']) !!}
+		{!! Form::open(['route' => 'admin.categories.store', 'autocomplete' => 'off']) !!}
 
 			<div class="form-group">
 				{!! Form::label('name', 'Nombre') !!}
