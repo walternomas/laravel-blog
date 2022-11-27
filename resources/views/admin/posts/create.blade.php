@@ -15,8 +15,6 @@
               'files' => true
           ]) !!}
 
-          {!! Form::hidden('user_id', auth()->user()->id) !!}
-
           @include('admin.posts.partials.form')
 
           {!! Form::submit('Crear post', [
@@ -42,11 +40,11 @@
       height: 100%;
     }
   </style>
-@endsection
+@stop
 
 @section('js')
-  <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}">
-  <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}">
+  <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+  <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}"></script>
 
   <script>
     $(document).ready(function() {
@@ -75,6 +73,7 @@
       var file = event.target.files[0];
 
       var reader = new FileReader();
+
       reader.onload = (event) => {
         document.getElementById("picture").setAttribute('src', event.target.result);
       };
@@ -82,4 +81,4 @@
       reader.readAsDataURL(file);
     }
   </script>
-@endsection
+@stop

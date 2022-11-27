@@ -67,26 +67,31 @@
 </div>
 
 <div class="row mb-3">
-<div class="col">
-  <img
-    id="picture"
-    src="https://cdn.pixabay.com/photo/2017/04/16/18/08/test-tube-2235388_960_720.png"
-    alt=""
-  >
-</div>
-<div class="col">
-  <div class="form-group">
-    {!! Form::label('file', 'imagen se se mostratá') !!}
-    {!! Form::file('file', [
-      'class' => 'form-control-file',
-      'accept' => 'image/*',
-    ]) !!}
-    @error('file')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+
+  <div class="col">
+    <div class="image-wrapper">
+      @isset ($post->image)
+      <img src="{{ Storage::url($post->image->url) }}" alt="{{ $post->name }}">
+      @else
+      <img id="picture" src="https://cdn.pixabay.com/photo/2017/04/16/18/08/test-tube-2235388_960_720.png" alt="se mostrará en el post">
+      @endif
+    </div>
   </div>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laboriosam doloremque fugit impedit ea tenetur vitae a et. Voluptates laudantium dolor maiores, repudiandae sit sequi illo dicta quaerat. Consectetur, tempora?</p>
-</div>
+
+  <div class="col">
+    <div class="form-group">
+      {!! Form::label('file', 'imagen que se mostratá') !!}
+      {!! Form::file('file', [
+        'class' => 'form-control-file',
+        'accept' => 'image/*',
+      ]) !!}
+      @error('file')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
+    </div>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laboriosam doloremque fugit impedit ea tenetur vitae a et. Voluptates laudantium dolor maiores, repudiandae sit sequi illo dicta quaerat. Consectetur, tempora?</p>
+  </div>
+
 </div>
 
 <div class="form-group">

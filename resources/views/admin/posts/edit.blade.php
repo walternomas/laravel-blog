@@ -7,19 +7,25 @@
 @stop
 
 @section('content')
+
+@if (session('info'))
+<div class="alert alert-success">
+  <strong>{{ session('info') }}</strong>
+</div>
+@endif
+
   <div class="card">
       <div class="card-body">
-          {!! Form::model([
-              'route' => 'admin.posts.store',
+          {!! Form::model($post, [
+              'route' => ['admin.posts.update', $post],
               'autocomplete' => 'off',
-              'files' => true
+              'files' => true,
+              'method' => 'put'
           ]) !!}
-
-          {!! Form::hidden('user_id', auth()->user()->id) !!}
 
           @include('admin.posts.partials.form')
 
-          {!! Form::submit('Crear post', [
+          {!! Form::submit('Actualizar post', [
               'class' => 'btn btn-primary',
           ]) !!}
 
@@ -42,11 +48,11 @@
       height: 100%;
     }
   </style>
-@endsection
+@stop
 
 @section('js')
-  <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}">
-  <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}">
+  <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+  <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}"></script>
 
   <script>
     $(document).ready(function() {
@@ -82,4 +88,4 @@
       reader.readAsDataURL(file);
     }
   </script>
-@endsection
+@stop

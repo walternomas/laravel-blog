@@ -6,8 +6,7 @@
     <img
       class="w-full h-80 object-cover object-center"
       src="https://cdn.pixabay.com/photo/2017/04/16/18/08/test-tube-2235388_960_720.png"
-      alt="{{ $post->name }}"
-    >
+      alt="{{ $post->name }}">
   @endif
 
   <div class="px-6 py-4">
